@@ -1,6 +1,7 @@
 # docker-bluespice-parsoid
 
 ## MediaWiki LocalSettings config
+Install instruction for VisualEditor can be found here: https://www.mediawiki.org/wiki/Extension:VisualEditor
 
 ```
 wfLoadExtension( 'VisualEditor' );
