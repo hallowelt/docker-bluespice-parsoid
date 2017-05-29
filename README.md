@@ -2,7 +2,7 @@
 
 ## MediaWiki LocalSettings config
 
-'''
+```
 wfLoadExtension( 'VisualEditor' );
 
 $wgSessionsInObjectCache = true;
@@ -29,12 +29,12 @@ $wgVirtualRestConfig['modules']['parsoid'] = array(
 	//'prefix' => 'localhost'
 	'forwardCookies' => true
 );
-'''
+```
 
 ## Run parsoid docker
-'''
+```
 git clone https://github.com/hallowelt/docker-bluespice-parsoid.git
 cd docker-bluespice-parsoid
 docker build -t parsoid .
 docker run -d -v ~/path/to/docker-bluespice-parsoid:/opt/parsoid/config -p=8000:8000 parsoid
-'''
+```
