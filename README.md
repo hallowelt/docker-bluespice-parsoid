@@ -58,6 +58,10 @@ ExecStopPost=/usr/bin/docker rm -f %i
 WantedBy=default.target
 ```
 * Copy config.yaml to /etc/mediawiki/parsoid/config.yaml
+```
+mkdir -p /etc/mediawiki/parsoid/
+cp config.yaml /etc/mediawiki/parsoid/config.yaml
+```
 * Restart systemd and enable service
 ```
 systemctl daemon-reload
