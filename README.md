@@ -36,5 +36,5 @@ $wgVirtualRestConfig['modules']['parsoid'] = array(
 git clone https://github.com/hallowelt/docker-bluespice-parsoid.git
 cd docker-bluespice-parsoid
 docker build -t parsoid .
-docker run -d -v ~/path/to/docker-bluespice-parsoid:/opt/parsoid/config -p=8000:8000 parsoid
+docker run -d -v $(pwd):/opt/parsoid/config -p=8000:8000 parsoid
 ```
