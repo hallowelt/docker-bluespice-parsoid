@@ -8,11 +8,11 @@ Install instruction for VisualEditor can be found here: https://www.mediawiki.or
 git clone https://github.com/hallowelt/docker-bluespice-parsoid.git
 cd docker-bluespice-parsoid
 docker build -t parsoid .
-docker run -d -v $(pwd):/etc/parsoid/config -p=8000:8000 parsoid
+docker run -d -p=8000:8000 parsoid
 ```
 If you wish to run with letsencrypt certificate:
 ````
-docker run -d -v $(pwd):/etc/parsoid/config -p=8000:8000 -p=8001:8001 parsoid
+docker run -d -v <path to your fullchain and privkey>:/etc/parsoid/ssl -p=8000:8000 -p=8001:8001 parsoid
 ````
 
 ## Enable docker container at boot for systemd
