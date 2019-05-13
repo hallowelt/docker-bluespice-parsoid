@@ -1,10 +1,17 @@
-FROM node:6
+FROM node:10-alpine
 
-RUN apt-get update && apt-get upgrade -y
-RUN apt-get install -y git-core
-RUN git clone https://gerrit.wikimedia.org/r/p/mediawiki/services/parsoid /opt/parsoid 
-RUN cd /opt/parsoid && npm install && npm test && cp config.example.yaml config.yaml
-RUN npm install pm2 -g
-CMD node /opt/parsoid/bin/server.js -c /opt/parsoid/config/config.yaml
+WORKDIR /opt/parsoid
+
+RUN wget https://buildservice.bluespice.com/webservices/REL1_31/parsoid.tar.gz; \
+	tar xf parsoid.tar.gz; \
+	rm parsoid.tar.gz; \
+	mv parsoid/* .; \
+	rm -rf parsoid
+
+COPY parsoid/config.yaml .
+COPY parsoid/localsettings.js .
+
 EXPOSE 8000
-VOLUME /opt/parsoid/config
+
+CMD [ "node", "bin/server.js" ]
+
